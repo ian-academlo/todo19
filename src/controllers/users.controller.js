@@ -1,9 +1,22 @@
-const getAllUsers = (req, res) => {
-  res.json({ message: "Obteniendo todos los usuarios" });
+const UserServices = require("../services/user.services");
+
+const getAllUsers = async (req, res) => {
+  try {
+    const result = await UserServices.getAll();
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
 };
 
-const getUserById = (req, res) => {
-  res.json({ message: "Obteniendo un usuario por id" });
+const getUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await UserServices.getById(id);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
 };
 
 const createUser = (req, res) => {
