@@ -3,6 +3,7 @@ const express = require("express");
 const db = require("./utils/database");
 const initModels = require("./models/init.model");
 const Users = require("./models/users.model");
+const userRoutes = require("./routes/users.routes");
 
 // crear una instancia de express
 const app = express();
@@ -29,6 +30,8 @@ db.sync({ force: false })
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Bienvenido al servidor" });
 });
+
+app.use("/api/v1", userRoutes);
 
 // definir las rutas de nuestros endpoints (de ahora adelante ep)
 // todas las consultar de usuarios
