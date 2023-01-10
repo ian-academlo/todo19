@@ -18,6 +18,15 @@ class UserServices {
       throw error;
     }
   }
+
+  static async create(user) {
+    try {
+      const result = Users.create(user);
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = UserServices;

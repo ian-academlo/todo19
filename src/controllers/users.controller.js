@@ -19,8 +19,14 @@ const getUserById = async (req, res) => {
   }
 };
 
-const createUser = (req, res) => {
-  res.json({ message: "Creando un nuevo usuario" });
+const createUser = async (req, res) => {
+  try {
+    const newUser = req.body;
+    const result = await UserServices.create(newUser);
+    res.status(201).json(result);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
 };
 
 const updateUser = (req, res) => {
