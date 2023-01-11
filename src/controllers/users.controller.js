@@ -19,6 +19,16 @@ const getUserById = async (req, res) => {
   }
 };
 
+const getUserWithTasks = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await UserServices.getWithTasks(id);
+    res.json(result); // defecto se responde status 200
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
+
 const createUser = async (req, res) => {
   try {
     const newUser = req.body;
@@ -43,4 +53,5 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
+  getUserWithTasks,
 };

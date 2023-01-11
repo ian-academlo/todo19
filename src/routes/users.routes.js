@@ -2,6 +2,7 @@ const { Router } = require("express");
 const {
   getAllUsers,
   getUserById,
+  getUserWithTasks,
   createUser,
   updateUser,
   deleteUser,
@@ -19,6 +20,9 @@ const router = Router();
 router.get("/users", getAllUsers);
 
 router.get("/users/:id", getUserById);
+
+// obtener a un usuario con sus tareas
+router.get("/users/:id/todos", getUserWithTasks);
 
 router.post("/users", createUser);
 
