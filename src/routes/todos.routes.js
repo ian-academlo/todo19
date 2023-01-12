@@ -5,6 +5,7 @@ const {
   createTask,
   updateTask,
   deleteTask,
+  getTodosWithCategories,
 } = require("../controllers/todos.controllers");
 
 const router = Router();
@@ -12,6 +13,8 @@ const router = Router();
 router.get("/todos", getAllTasks);
 
 router.get("/todos/:id", getTaskById);
+
+router.get("/todos/:id/categories", getTodosWithCategories);
 
 router.post("/todos", createTask);
 
