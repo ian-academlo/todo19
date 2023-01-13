@@ -2,14 +2,16 @@
 const express = require("express");
 const db = require("./utils/database");
 const initModels = require("./models/init.model");
-const Users = require("./models/users.model");
 const userRoutes = require("./routes/users.routes");
 const todosRoutes = require("./routes/todos.routes");
+const authRoutes = require("./routes/auth.routes");
+const cors = require("cors");
 
 // crear una instancia de express
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 const PORT = 8000;
 
@@ -29,6 +31,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", todosRoutes);
+app.use("/api/v1", authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
