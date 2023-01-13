@@ -11,13 +11,14 @@ const users = [
 ];
 
 const todos = [
-  { title: "Estudiar node", description: "shalala shalalal", userId: 1 }, // 1
-  { title: "Pasear al perro", description: "shalala shalalal 2", userId: 1 }, // 2
-  { title: "lavar platos", userId: 2 }, // 3
+  { title: "Estudiar node", description: "shalala shalalal", user_id: 1 }, // 1
+  { title: "Pasear al perro", description: "shalala shalalal 2", user_id: 1 }, // 2
+  { title: "lavar platos", user_id: 2 }, // 3
   {
     title: "ir chequeo mensual",
     description: "porque node no me deja",
-    userId: 3,
+    user_id: 3,
+    isComplete: true,
   }, // 4
 ];
 

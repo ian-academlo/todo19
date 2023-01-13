@@ -5,7 +5,11 @@ const Categories = require("../models/categories.models");
 class TodosServices {
   static async getAll() {
     try {
-      const result = await Todos.findAll();
+      const result = await Todos.findAndCountAll({
+        where: {
+          isComplete: false,
+        },
+      });
       return result;
     } catch (error) {
       throw error;
