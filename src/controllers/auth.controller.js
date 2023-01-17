@@ -13,9 +13,11 @@ const userLogin = async (req, res) => {
         id: response.result.id,
       };
       // firmamos un nuevo token
-      const token = jwt.sign(data, "shalala shalala", { algorithm: "HS512" });
+      const token = jwt.sign(data, "shalala shalala", {
+        algorithm: "HS512",
+        expiresIn: "1m",
+      });
       data.token = token;
-      console.log(data);
       res.json(data);
     } else {
       res.status(401).json({ message: "Credenciales invalidas" });

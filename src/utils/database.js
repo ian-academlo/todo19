@@ -4,7 +4,7 @@ const { Sequelize } = require("sequelize");
 // un objeto de configuración --> credenciales de mi base de datos
 const db = new Sequelize({
   database: "todoapp",
-  username: "postgres", // postgres para ustedes
+  username: "iannacus", // postgres para ustedes
   host: "localhost", // 127.0.0.1
   port: "5432",
   password: "root", // pones tu contraseña
