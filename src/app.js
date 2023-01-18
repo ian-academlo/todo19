@@ -6,6 +6,9 @@ const userRoutes = require("./routes/users.routes");
 const todosRoutes = require("./routes/todos.routes");
 const authRoutes = require("./routes/auth.routes");
 const cors = require("cors");
+require("dotenv").config();
+
+console.log(process.env.PORT);
 
 // crear una instancia de express
 const app = express();
@@ -13,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const PORT = 8000;
+const PORT = process.env.PORT;
 
 db.authenticate()
   .then(() => console.log("Autenticación exitosa"))

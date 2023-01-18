@@ -7,6 +7,7 @@ const {
   updateUser,
   deleteUser,
 } = require("../controllers/users.controller");
+const authMiddleware = require("../middlwares/auth.middleware");
 
 const router = Router();
 
@@ -17,17 +18,17 @@ const router = Router();
 
 // localhost:8000/users
 // controlador
-router.get("/users", getAllUsers);
+router.get("/users", authMiddleware, getAllUsers);
 
-router.get("/users/:id", getUserById);
+router.get("/users/:id", authMiddleware, getUserById);
 
 // obtener a un usuario con sus tareas
-router.get("/users/:id/todos", getUserWithTasks);
+router.get("/users/:id/todos", authMiddleware, getUserWithTasks);
 
 router.post("/users", createUser);
 
-router.put("/users/:id", updateUser);
+router.put("/users/:id", authMiddleware, updateUser);
 
-router.delete("/users/:id", deleteUser);
+router.delete("/users/:id", authMiddleware, deleteUser);
 
 module.exports = router;
